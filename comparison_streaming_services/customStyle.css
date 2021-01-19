@@ -1,0 +1,23 @@
+td, th {
+  text-align: center;
+}
+
+td.category {
+  text-align: left;
+}
+
+td.checkmark {
+  background-image: url("checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.8em;
+}
+
+td.crossmark {
+  background-image: url("crossmark.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.8em;
+
+  text-align: bottom;
+}
