@@ -1,5 +1,28 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 td, th {
   text-align: center;
+}
+
+h1 {
+  margin-bottom: 1.5em;
+  /*color: #0bd1f4;*/
+
+  border-bottom: 0.2em solid #b34700;
+  width: 95%;
+  display: block;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+h2 {
+  border-bottom: 0.2em solid #b34700;
+  width: 80%;
+  display: block;
 }
 
 td.category {
@@ -7,14 +30,14 @@ td.category {
 }
 
 td.checkmark {
-  background-image: url("checkmark.svg");
+  background-image: url("resources/checkmark.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.8em;
 }
 
 td.crossmark {
-  background-image: url("crossmark.png");
+  background-image: url("resources/crossmark.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.8em;
