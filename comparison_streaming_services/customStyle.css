@@ -10,7 +10,7 @@ h1 {
   margin-bottom: 1.5em;
   /*color: #0bd1f4;*/
 
-  border-bottom: 0.2em solid #b34700;
+  border-bottom: 0.2em solid hsl(89, 43%, 51%);
   width: 95%;
   display: block;
 }
@@ -20,9 +20,17 @@ p {
 }
 
 h2 {
-  border-bottom: 0.2em solid #b34700;
+  border-bottom: 0.2em solid hsl(89, 43%, 51%);
   width: 80%;
   display: block;
+}
+
+/*td, tr {
+  border: 20px solid #000000;
+}*/
+
+.margin-top {
+  margin-top: 0.5em;
 }
 
 td.category {
