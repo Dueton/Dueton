@@ -29,8 +29,9 @@ h2 {
   border: 20px solid #000000;
 }*/
 
-.margin-top {
-  margin-top: 0.5em;
+img.margins {
+  margin-top: 1em;
+  margin-bottom: 0.6em;
 }
 
 td.category {
