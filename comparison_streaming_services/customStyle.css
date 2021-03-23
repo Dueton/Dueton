@@ -73,3 +73,7 @@ td.crossmark {
 
   text-align: bottom;
 }
+
+table.fixed {
+    table-layout: fixed;
+}
