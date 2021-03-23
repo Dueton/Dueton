@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
 }
 
 td, th {
@@ -9,31 +9,30 @@ td, th {
 h1 {
   color: black;
   text-align: center;
+  font-weight: bold;
   margin-bottom: 1.5em;
 
-  /*font-family: Gotham;
-
-  text-shadow: 2px 2px 10px #000000;*/
-
-  border-bottom: 0.04em solid rgb(74, 73, 73);
+  border-bottom: 0.15em solid rgb(74, 73, 73);
   width: 95%;
   display: block;
-}
-
-#site-header {box-shadow: 0px 10px 5px #27272780;
--webkit-box-shadow: 0px 10px 5px #27272780;
--moz-box-shadow: 0px 10px 5px #27272780;
-position: relative;
-z-index: 999999;}
-
-p {
-  font-size: 1.2em;
 }
 
 h2 {
   border-bottom: 0.2em solid hsl(89, 43%, 51%);
   width: 80%;
   display: block;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+#site-header {
+    box-shadow: 0px 10px 5px #27272780;
+    -webkit-box-shadow: 0px 10px 5px #27272780;
+    -moz-box-shadow: 0px 10px 5px #27272780;
+    position: relative;
+    z-index: 999999;
 }
 
 /*td, tr {
@@ -45,8 +44,12 @@ img.floatLeft {
   margin-top: -3em;
 }
 
-#topmargin {
+.topmargin1p4 {
   margin-top: 1.4em;
+}
+
+.topmargin2 {
+  margin-top: 2em;
 }
 
 .margins {
@@ -72,4 +75,17 @@ td.crossmark {
   background-size: 1.8em;
 
   text-align: bottom;
+}
+
+table.fixed {
+  table-layout: fixed;
+}
+
+.card {
+  display:inline-block;
+}
+
+div.alignCenter {
+  display: flex;
+  justify-content: center;
 }
