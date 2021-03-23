@@ -45,8 +45,12 @@ img.floatLeft {
   margin-top: -3em;
 }
 
-#topmargin {
+.topmargin1p4 {
   margin-top: 1.4em;
+}
+
+.topmargin2 {
+  margin-top: 2em;
 }
 
 .margins {
@@ -75,5 +79,14 @@ td.crossmark {
 }
 
 table.fixed {
-    table-layout: fixed;
+  table-layout: fixed;
+}
+
+.card {
+  display:inline-block;
+}
+
+div.alignCenter {
+  display: flex;
+  justify-content: center;
 }
