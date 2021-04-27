@@ -1,0 +1,49 @@
+h1 {
+  text-align: center;
+}
+
+* {
+  padding: .5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.details {
+  margin-top: 8%;
+}
+
+.details img {
+  width: 20%;
+  float: left;
+}
+
+#first-detail {
+  margin-top: 0.5%;
+}
+
+#genre {
+  margin-top: 0.2%;
+}
+
+.details p {
+  font-size: 1.5em;
+  margin-top: -2%;
+  margin-left: 22%;
+}
+
+.details span {
+  font-weight: bold;
+  color: #265773;
+}
+
+.audio {
+  margin-top: 12%;
+}
+
+.audio audio {
+  width: 50%;
+}
+
+.audio h2 {
+  margin-bottom: 0;
+}

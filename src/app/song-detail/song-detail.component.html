@@ -1,0 +1,26 @@
+<div *ngIf="song">
+  <h1>{{song.name | uppercase}} Details</h1>
+  <div class="details">
+    <img src="{{song.pictureUrl}}" alt="{{song.name}} Cover">
+
+    <p id="first-detail"><span>Artist:</span> {{song.artist}}</p>
+    <p><span>Collection:</span> {{song.collectionName}}</p>
+    <p id="genre"><span>Genre:</span> {{song.genre}}</p>
+    <p><span>Release Date: </span> {{song.releaseDate.toDateString()}}</p>
+  </div>
+
+  <div class="audio">
+    <h2>Sample: </h2>
+
+    <audio controls>
+      <source src="{{song.previewUrl}}" type="audio/mpeg">
+        It seems like your browser doesn't support audio playback.
+        Consider upgrading it
+      </audio>
+  </div>
+
+  <!--<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_NGQfFCFUn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  maybe itunes lookup collectionid to get descripion
+    -->
+</div>

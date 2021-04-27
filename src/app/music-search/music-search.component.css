@@ -1,0 +1,94 @@
+div.middle {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+
+  margin: -70px 0 0 -170px;
+}
+
+.search-result img {
+  width: 10%;
+  margin-top: 1.8%;
+  position: absolute;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+
+  font-weight: bold;
+  font-size: 500%;
+  text-align: center;
+}
+
+input {
+  padding: .5rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+}
+
+input:focus {
+  outline: #336699 auto 1px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.search-result li a {
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  padding: .5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+
+  margin-left: 10%;
+  padding-top: 2.2%;
+  font-size: 150%;
+}
+
+.search-result li {
+  margin-bottom: 5%;
+}
+
+.search-result li:hover {
+  background-color: #435A60;
+  color: white;
+  border-radius: 25px;
+
+  left: -5%;
+  padding-left: 25px;
+}
+
+ul.search-result {
+  margin-top: 15%;
+  padding-left: 0;
+}
+
+span {
+  display: block;
+  font-size: 54%;
+}
+
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
