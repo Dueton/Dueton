@@ -4,18 +4,20 @@ server:
     context-path: /api
 
 spotify:
-  client-id:
+  client-id: 
   client-secret:
 
 youtube:
-  api-key: 
+  api-key:
   video-id-key: "\"videoId\": \""
   video-url-template: https://www.youtube.com/watch?v=
 
 spring:
   datasource:
-    url: jdbc:h2:file:./src/main/resources/db/db
-    driver-class-name: org.h2.Driver
+    url:
+    username:
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update

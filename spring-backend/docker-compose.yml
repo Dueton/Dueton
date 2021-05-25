@@ -7,12 +7,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: dueton
-      MYSQL_USER: spring
+      MYSQL_USER:
       MYSQL_PASSWORD:
     ports:
       - "3306:3306"
     restart: on-failure
     volumes:
-      - ${PWD}/mariadb:/var/lib/mysql
+      - /var/lib/mysql
 
-# sudo docker run -it --network spring-backend_default --rm mariadb mysql -hspring-backend_mariadb_1 -mariadb -uroot -p
+# sudo docker run -it --network spring-backend_default --rm mariadb mysql -hspring-backend_mariadb_1 -uroot -pJ6RAKz7fbgYhSM4d4Asz3ScjbLig4Jqk

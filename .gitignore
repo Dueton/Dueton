@@ -49,3 +49,6 @@ Thumbs.db
 
 package-lock.json
 
+# Configs
+application.yml
+docker-compose.yml
