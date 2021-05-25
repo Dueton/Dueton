@@ -41,8 +41,9 @@ public class SongController {
         .map(this::convertToDto))
       .orElse(iTunesService.findById(id)
         .map(i -> {
-          songService.save(convertToEntity(i));
-          return convertToDto(i);
+          SongDto dto = convertToDto(i);
+          songService.save(convertToEntity(dto));
+          return dto;
         }))
       .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
   }
@@ -72,8 +73,9 @@ public class SongController {
       if (results != null && results.getResults() != null && results.getResultCount() > 0) {
         songs = Arrays.stream(results.getResults())
           .map(i -> {
-            songService.save(convertToEntity(i));
-            return convertToDto(i);
+            SongDto dto = convertToDto(i);
+            songService.save(convertToEntity(dto));
+            return dto;
           })
           .collect(Collectors.toList());
       }
@@ -123,13 +125,13 @@ public class SongController {
       .build();
   }
 
-  protected SongSimplified convertToEntity(iTunesSong iTunesSong) {
+  /*protected SongSimplified convertToEntity(iTunesSong iTunesSong) {
     return new SongSimplifiedBuilder()
       .setId(iTunesSong.getTrackId())
       .setName(iTunesSong.getTrackName())
       .setiTunesUrl(iTunesSong.getTrackViewUrl())
       .build();
-  }
+  }*/
 
   protected SongSimplified convertToEntity(SongDto dto) {
     return new SongSimplifiedBuilder()
@@ -137,6 +139,7 @@ public class SongController {
       .setName(dto.getName())
       .setiTunesUrl(dto.getiTunesUrl())
       .setSpotifyUrl(dto.getSpotifyUrl())
+      .setYoutubeUrl(dto.getYoutubeUrl())
       .build();
   }
 }
