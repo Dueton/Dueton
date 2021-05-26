@@ -4,12 +4,12 @@ server:
     context-path: /api
 
 spotify:
-  client-id: e4cac5b2ad8c4ef78f31994f0308c98f
-  client-secret: 4fbd193aef2e46bd8df4dafbd2060fe2
+  client-id:
+  client-secret:
 
 youtube:
-  #api-key: AIzaSyAdc5E5TVoAdCNCww9eyBTVlvR9hWaH7Es
-  api-key: AIzaSyAw3rLsrAPFDKiUlZYYoiJPTo2hGZpFyG0
+  #api-key:
+  api-key:
   video-id-key: "\"videoId\": \""
   video-url-template: https://www.youtube.com/watch?v=
 
@@ -17,7 +17,7 @@ spring:
   datasource:
     url: jdbc:mariadb://localhost:3306/dueton
     username: spring
-    password: tG9x9pCTdHmYeGy8knbxnX3KExj7rn4Y
+    password:
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
