@@ -8,26 +8,54 @@ h1 {
   margin: auto;
 }
 
-.details {
-  margin-top: 8%;
+
+.songdetails {
+  margin-top: 3%;
 }
 
-.details img {
-  width: 20%;
+.details {
+  margin-top: 4%;
+}
+
+.floatleft {
   float: left;
 }
 
+.links {
+  margin-top: 3%;
+  margin-left: 27.5%;
+  margin-right: 28%;
+
+  border-style: solid;
+  border-radius: 10px;
+
+  width: 25%;
+  padding: 0;
+}
+
+.links img {
+  width: 20%;
+
+  margin-top: -1.5%;
+  margin-bottom: -2%;
+  margin-right: -0%;
+}
+
+.links legend {
+  align-self: left;
+}
+
 #first-detail {
-  margin-top: 0.5%;
+  margin-top: 0;
 }
 
 #genre {
-  margin-top: 0.2%;
+  margin-top: 0.5%;
 }
 
 .details p {
   font-size: 1.5em;
-  margin-top: -2%;
+  margin-top: -1%;
   margin-left: 22%;
 }
 
@@ -37,7 +65,7 @@ h1 {
 }
 
 .audio {
-  margin-top: 12%;
+  margin-top: 3%;
 }
 
 .audio audio {

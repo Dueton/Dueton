@@ -1,12 +1,26 @@
-<div *ngIf="song">
+<div *ngIf="song" class="songdetails">
   <h1>{{song.name | uppercase}} Details</h1>
   <div class="details">
-    <img src="{{song.pictureUrl}}" alt="{{song.name}} Cover">
+    <img src="{{song.pictureUrl}}" class="floatleft" width=25% alt="{{song.name}} Cover">
 
     <p id="first-detail"><span>Artist:</span> {{song.artist}}</p>
     <p><span>Collection:</span> {{song.collectionName}}</p>
     <p id="genre"><span>Genre:</span> {{song.genre}}</p>
-    <p><span>Release Date: </span> {{song.releaseDate.toDateString()}}</p>
+    <p><span>Release Date: </span> {{releaseDate.toDateString()}}</p>
+
+    <div class="links">
+      <a href="{{song.spotifyUrl}}" target="_blank">
+        <img src="assets/img/spotify_small.png" class="margins img-fluid" alt="Spotify Link to {{song.name}}">
+      </a>
+
+      <a href="{{song.iTunesUrl}}" target="_blank">
+        <img src="assets/img/apple_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
+      </a>
+
+      <a href="{{song.youtubeUrl}}" target="_blank">
+        <img src="assets/img/youtube_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
+      </a>
+    </div>
   </div>
 
   <div class="audio">
@@ -19,8 +33,13 @@
       </audio>
   </div>
 
-  <!--<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_NGQfFCFUn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  maybe itunes lookup collectionid to get descripion
-    -->
+  <div class="video">
+    <h2>Music-Video:</h2>
+    <iframe 
+      [src]="embedSrc"
+      width="560" height="315"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>

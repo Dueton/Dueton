@@ -8,6 +8,7 @@ public class SongBuilder {
 
     private Long id;
     private String name;
+    private Long voteCount;
 
     private String spotifyUrl;
     private String iTunesUrl;
@@ -80,7 +81,7 @@ public class SongBuilder {
     }
 
     public SongBuilder setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+        this.pictureUrl = pictureUrl.replace("100x100", "1024x1024");
         return this;
     }
 
@@ -99,7 +100,12 @@ public class SongBuilder {
         return this;
     }
 
+    public SongBuilder setVoteCount(Long voteCount) {
+        this.voteCount = voteCount;
+        return this;
+    }
+
     public SongDto build() {
-        return new SongDto(id, name, artist, collectionName, pictureUrl, previewUrl, genre, releaseDate, spotifyUrl, iTunesUrl, youtubeUrl);
+        return new SongDto(id, name, voteCount, artist, collectionName, pictureUrl, previewUrl, genre, releaseDate, spotifyUrl, iTunesUrl, youtubeUrl);
     }
 }

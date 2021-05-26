@@ -12,17 +12,16 @@ import { Result } from './interfaces/result'
 })
 export class SongService {
 
-  private iTunesApiUrl = "https://itunes.apple.com/";
+  private iTunesApiUrl = "https://itunes.apple.com";
+  private backendUrl = "http://localhost:8081/api/songs";
 
   constructor(private http: HttpClient,) { }
 
   getSong(id: number): Observable<Song> {
-    return this.searchSongs(id+"", 1).pipe(
-      map(songs => songs[0])
-    )
+    return this.http.get<Song>(`${this.backendUrl}?id=${id}`).pipe()
   }
 
-  searchSongs(term: string, limit: number): Observable<Song[]> {
+  searchSongs(term: string, limit: number): Observable<ITunesResponse[]> {
     if (!term.trim()) {
       return of([]);
     }
@@ -30,16 +29,7 @@ export class SongService {
     term = term.replace(/\s/gi , '+');
 
     return this.http.get<Result<ITunesResponse[]>>(`${this.iTunesApiUrl}/search?media=music&term=${term}&limit=${limit}`).pipe(
-      map((result) => result.results.map((sp): Song => ({
-      id: sp.trackId,
-      name: sp.trackName,
-      artist: sp.artistName,
-      collectionName: sp.collectionName,
-      pictureUrl: sp.artworkUrl100.replace(/100/gi, "512"),
-      previewUrl: sp.previewUrl,
-      genre: sp.primaryGenreName,
-      releaseDate: new Date(sp.releaseDate)
-    }))))
+      map((result) => result.results));
   }
 
   private handleError<T>(result?: T) {
