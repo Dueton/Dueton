@@ -59,14 +59,22 @@ public class SongController {
   }
 
   @GetMapping(params = "name")
-  public Collection<SongDto> findByName(@RequestParam String name) {
-    return findByName(name, 10);
+  public Collection<SongDto> findByName(@RequestParam String query) {
+    return findByName(query, 10);
   }
 
   @GetMapping(params = {"name", "limit"})
-  public Collection<SongDto> findByName(@RequestParam String name, @RequestParam int limit) {
+  public Collection<SongDto> findByName(@RequestParam String query, @RequestParam int limit) {
     List<SongDto> songs;
-    Iterable<SongSimplified> simpleSongs = songService.findByName(name);
+    Iterable<SongSimplified> simpleSongs;
+
+    String[] split = query.split("by");
+
+    if (split.length > 2) {
+      split = new String[]{ split[0] + split[1], split[2] };
+    }
+
+    simpleSongs = songService.findByName(split[0]);
 
     if (simpleSongs.spliterator().estimateSize() >= limit) {
       songs = StreamSupport.stream(simpleSongs.spliterator(), false)
@@ -75,7 +83,7 @@ public class SongController {
     }
     else {
       // TODO maybe w subscriber, non-blocking - or find other blocking reason
-      Results<iTunesSong> results = iTunesService.findByName(name, limit).block();
+      Results<iTunesSong> results = iTunesService.findByName(query, limit).block();
 
       if (results != null && results.getResults() != null && results.getResultCount() > 0) {
         songs = Arrays.stream(results.getResults())
@@ -133,10 +141,20 @@ public class SongController {
   }
 
   protected SongDto convertToDto(iTunesSong iTunesSong) {
-    return buildToDto(new SongBuilder(), iTunesSong).build();
+    SongBuilder builder = new SongBuilder();
+    Optional<SongSimplified> optSimpleSong = songService.findById(iTunesSong.getTrackId());
+
+    if (optSimpleSong.isPresent()) {
+      SongSimplified simpleSong = optSimpleSong.get();
+      builder.setSpotifyUrl(simpleSong.getSpotifyUrl());
+      builder.setYoutubeUrl(simpleSong.getYoutubeUrl());
+    }
+
+    return buildToDto(builder, iTunesSong).build();
   }
 
   protected SongBuilder buildToDto(SongBuilder builder, iTunesSong iTunesSong) {
+
     return builder
       .setId(iTunesSong.getTrackId())
       .setName(iTunesSong.getTrackName())

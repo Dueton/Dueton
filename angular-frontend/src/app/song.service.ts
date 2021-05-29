@@ -21,6 +21,10 @@ export class SongService {
     return this.http.get<Song>(`${this.backendUrl}?id=${id}`).pipe()
   }
 
+  getNewReleases(): Observable<Song[]> {
+    return this.http.get<Song[]>(`${this.backendUrl}/new`)
+  }
+
   searchSongs(term: string, limit: number): Observable<ITunesResponse[]> {
     if (!term.trim()) {
       return of([]);
