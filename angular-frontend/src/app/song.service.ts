@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Song } from './song';
 import { ITunesResponse } from './interfaces/itunesresponse'
 import { Result } from './interfaces/result'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,18 @@ export class SongService {
   private iTunesApiUrl = "https://itunes.apple.com";
   private backendUrl = "http://localhost:8081/api/songs";
 
-  constructor(private http: HttpClient,) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   getSong(id: number): Observable<Song> {
-    return this.http.get<Song>(`${this.backendUrl}?id=${id}`).pipe()
+    return this.http.get<Song>(`${this.backendUrl}?id=${id}`).pipe(
+      catchError(e => {
+        this.router.navigate(['error/notfound/song'])
+        return this.handleError<Song>()
+      })
+    );
   }
 
   getNewReleases(): Observable<Song[]> {

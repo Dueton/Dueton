@@ -11,6 +11,7 @@ import { ComparisonComponent } from './comparison/comparison.component';
 import { ProjectDescriptionComponent } from './project-description/project-description.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewSongsComponent } from './new-songs/new-songs.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewSongsComponent } from './new-songs/new-songs.component';
     ComparisonComponent,
     ProjectDescriptionComponent,
     NavbarComponent,
-    NewSongsComponent
+    NewSongsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

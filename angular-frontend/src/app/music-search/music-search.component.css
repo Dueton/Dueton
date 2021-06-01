@@ -1,11 +1,3 @@
-div.middle {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-
-  margin: -70px 0 0 -170px;
-}
-
 div.releases {
   position: absolute;
   right: 2%;

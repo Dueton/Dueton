@@ -1,0 +1,16 @@
+div.middle {
+    margin-left: -5%;
+}
+
+.middle h1 {
+    font-size: 500%;
+    color: white;
+}
+
+.middle h2 {
+    text-align: center;
+    font-size: 200%;
+    color: white;
+
+    margin-top: -6%;
+}
