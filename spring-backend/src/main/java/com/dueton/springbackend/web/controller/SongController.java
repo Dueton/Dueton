@@ -18,6 +18,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/songs")
 public class SongController {
@@ -36,39 +37,53 @@ public class SongController {
 
   @GetMapping(params = "id")
   public SongDto findOne(@RequestParam long id) {
-    return songService.findById(id)
-      .map(s -> iTunesService.findBySimplified(s)
-        .map(this::convertToDto))
-      .orElse(iTunesService.findById(id)
-        .map(i -> {
-          SongDto dto = convertToDto(i);
-          songService.save(convertToEntity(dto));
-          return dto;
-        }))
-      .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    SongDto song;
+    Optional<SongSimplified> optSimpleSong = songService.findById(id);
+
+    if (optSimpleSong.isPresent()) {
+      song = convertToDto(optSimpleSong.get());
+    }
+    else {
+      Optional<iTunesSong> optiSong = iTunesService.findById(id);
+
+      if (optiSong.isPresent()) {
+        song = convertToDto(optiSong.get());
+        songService.save(convertToEntity(song));
+      }
+      else {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+      }
+    }
+
+    return song;
   }
 
   @GetMapping(params = "name")
-  public Collection<SongDto> findByName(@RequestParam String name) {
-    return findByName(name, 10);
+  public Collection<SongDto> findByName(@RequestParam String query) {
+    return findByName(query, 10);
   }
 
   @GetMapping(params = {"name", "limit"})
-  public Collection<SongDto> findByName(@RequestParam String name, @RequestParam int limit) {
+  public Collection<SongDto> findByName(@RequestParam String query, @RequestParam int limit) {
     List<SongDto> songs;
-    Iterable<SongSimplified> simpleSongs = songService.findByName(name);
+    Iterable<SongSimplified> simpleSongs;
+
+    String[] split = query.split("by");
+
+    if (split.length > 2) {
+      split = new String[]{ split[0] + split[1], split[2] };
+    }
+
+    simpleSongs = songService.findByName(split[0]);
 
     if (simpleSongs.spliterator().estimateSize() >= limit) {
       songs = StreamSupport.stream(simpleSongs.spliterator(), false)
-        .map(s -> iTunesService.findBySimplified(s)
-          .map(this::convertToDto))
-        .filter(Optional::isPresent)
-        .map(Optional::get)
+        .map(this::convertToDto)
         .collect(Collectors.toList());
     }
     else {
       // TODO maybe w subscriber, non-blocking - or find other blocking reason
-      Results<iTunesSong> results = iTunesService.findByName(name, limit).block();
+      Results<iTunesSong> results = iTunesService.findByName(query, limit).block();
 
       if (results != null && results.getResults() != null && results.getResultCount() > 0) {
         songs = Arrays.stream(results.getResults())
@@ -109,8 +124,38 @@ public class SongController {
     return songs;
   }
 
+  protected SongDto convertToDto(SongSimplified simpleSong) {
+    Optional<iTunesSong> optiSong = iTunesService.findById(simpleSong.getId());
+    SongBuilder builder = new SongBuilder()
+        .setId(simpleSong.getId())
+        .setName(simpleSong.getName())
+        .setSpotifyUrl(simpleSong.getSpotifyUrl())
+        .setYoutubeUrl(simpleSong.getYoutubeUrl())
+        .setVoteCount(simpleSong.getVoteCount());
+
+    if (optiSong.isPresent()) {
+      builder = buildToDto(builder, optiSong.get());
+    }
+
+    return builder.build();
+  }
+
   protected SongDto convertToDto(iTunesSong iTunesSong) {
-    return new SongBuilder()
+    SongBuilder builder = new SongBuilder();
+    Optional<SongSimplified> optSimpleSong = songService.findById(iTunesSong.getTrackId());
+
+    if (optSimpleSong.isPresent()) {
+      SongSimplified simpleSong = optSimpleSong.get();
+      builder.setSpotifyUrl(simpleSong.getSpotifyUrl());
+      builder.setYoutubeUrl(simpleSong.getYoutubeUrl());
+    }
+
+    return buildToDto(builder, iTunesSong).build();
+  }
+
+  protected SongBuilder buildToDto(SongBuilder builder, iTunesSong iTunesSong) {
+
+    return builder
       .setId(iTunesSong.getTrackId())
       .setName(iTunesSong.getTrackName())
       .setSpotifyUrl(spotifyService)
@@ -121,8 +166,7 @@ public class SongController {
       .setArtist(iTunesSong.getArtistName())
       .setPreviewUrl(iTunesSong.getPreviewUrl())
       .setGenre(iTunesSong.getPrimaryGenreName())
-      .setReleaseDate(iTunesSong.getReleaseDate())
-      .build();
+      .setReleaseDate(iTunesSong.getReleaseDate());
   }
 
   /*protected SongSimplified convertToEntity(iTunesSong iTunesSong) {

@@ -1,7 +1,5 @@
 package com.dueton.springbackend.web.dto;
 
-import com.dueton.springbackend.persistence.model.SongSimplified;
-
 public class SongDto {
 
   private Long id;
@@ -24,9 +22,10 @@ public class SongDto {
     this.id = id;
   }
 
-  protected SongDto(Long id, String name, String artist, String collectionName, String pictureUrl, String previewUrl, String genre, String releaseDate, String spotifyUrl, String iTunesUrl, String youtubeUrl) {
+  protected SongDto(Long id, String name, Long voteCount, String artist, String collectionName, String pictureUrl, String previewUrl, String genre, String releaseDate, String spotifyUrl, String iTunesUrl, String youtubeUrl) {
     this(id);
     this.name = name;
+    this.voteCount = voteCount;
     this.artist = artist;
     this.collectionName = collectionName;
     this.pictureUrl = pictureUrl;

@@ -29,6 +29,8 @@ public class YoutubeServiceImpl implements IYoutubeService {
   @Override
   public String getUrl(String searchQuery) {
     String url = "No YouTube video found!";
+    // for keeping track of rate-limits
+    System.out.println("[YT-INFO] Sent 1 request to the YouTube API");
 
     if (searchQuery == null || searchQuery.isBlank()) {
       return url;

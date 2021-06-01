@@ -91,3 +91,11 @@ input[type="text"] {
   width: 100%;
   padding: .5rem;
 }
+
+div.middle {
+  position: absolute;
+  top: 40%;
+  left: 36%;
+
+  /*margin: -70px 0 0 -170px;*/
+}

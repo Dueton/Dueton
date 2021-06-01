@@ -4,10 +4,10 @@
 
   <ul class="search-result">
     <li *ngFor="let song of songs$ | async">
-      <img src="{{song.pictureUrl}}" alt="Cover of {{song.collectionName}}">
-      <a routerLink="/song/{{song.id}}">
-        {{song.name}}
-        <span>by {{song.artist}}</span>
+      <img src="{{song.artworkUrl100}}" alt="Cover of {{song.trackName}}">
+      <a routerLink="/song/{{song.trackId}}">
+        {{song.trackName}}
+        <span>by {{song.artistName}}</span>
       </a>
     </li>
   </ul>

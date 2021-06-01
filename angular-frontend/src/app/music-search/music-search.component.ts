@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { ITunesResponse } from '../interfaces/itunesresponse';
 
 import { Song } from '../song';
 import { SongService } from '../song.service';
@@ -12,7 +13,7 @@ import { SongService } from '../song.service';
 })
 export class MusicSearchComponent implements OnInit {
 
-  songs$: Observable<Song[]>;
+  songs$: Observable<ITunesResponse[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private songService: SongService) { }

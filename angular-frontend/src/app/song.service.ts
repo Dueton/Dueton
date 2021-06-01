@@ -6,23 +6,40 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Song } from './song';
 import { ITunesResponse } from './interfaces/itunesresponse'
 import { Result } from './interfaces/result'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
 
-  private iTunesApiUrl = "https://itunes.apple.com/";
+  private iTunesApiUrl = "https://itunes.apple.com";
+  private backendUrl = "http://localhost:8081/api/songs";
 
-  constructor(private http: HttpClient,) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   getSong(id: number): Observable<Song> {
-    return this.searchSongs(id+"", 1).pipe(
-      map(songs => songs[0])
-    )
+    return this.http.get<Song>(`${this.backendUrl}?id=${id}`).pipe(
+      catchError(e => {
+        this.router.navigate(['error/notfound/song'])
+        return this.handleError<Song>()
+      })
+    );
   }
 
-  searchSongs(term: string, limit: number): Observable<Song[]> {
+  getNewReleases(): Observable<Song[]> {
+    return this.http.get<Song[]>(`${this.backendUrl}/new`).pipe(
+      catchError(e => {
+        this.router.navigate(['error/notfound/newreleases'])
+        return this.handleError<Song>()
+      })
+    );
+  }
+
+  searchSongs(term: string, limit: number): Observable<ITunesResponse[]> {
     if (!term.trim()) {
       return of([]);
     }
@@ -30,16 +47,7 @@ export class SongService {
     term = term.replace(/\s/gi , '+');
 
     return this.http.get<Result<ITunesResponse[]>>(`${this.iTunesApiUrl}/search?media=music&term=${term}&limit=${limit}`).pipe(
-      map((result) => result.results.map((sp): Song => ({
-      id: sp.trackId,
-      name: sp.trackName,
-      artist: sp.artistName,
-      collectionName: sp.collectionName,
-      pictureUrl: sp.artworkUrl100.replace(/100/gi, "512"),
-      previewUrl: sp.previewUrl,
-      genre: sp.primaryGenreName,
-      releaseDate: new Date(sp.releaseDate)
-    }))))
+      map((result) => result.results));
   }
 
   private handleError<T>(result?: T) {

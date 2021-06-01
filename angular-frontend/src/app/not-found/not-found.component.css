@@ -1,0 +1,27 @@
+div.middle {
+    margin-left: -5%;
+}
+
+.middle h1 {
+    font-size: 500%;
+}
+
+.middle h2 {
+    text-align: center;
+    font-size: 200%;
+
+    margin-top: -6%;
+    width: 100%;
+}
+
+.middle p {
+    font-size: 150%;
+}
+
+.middle * {
+    color: white;
+}
+
+.middle h2, .middle p{
+    margin-left: -10%;
+}
