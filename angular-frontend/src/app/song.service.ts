@@ -31,7 +31,12 @@ export class SongService {
   }
 
   getNewReleases(): Observable<Song[]> {
-    return this.http.get<Song[]>(`${this.backendUrl}/new`)
+    return this.http.get<Song[]>(`${this.backendUrl}/new`).pipe(
+      catchError(e => {
+        this.router.navigate(['error/notfound/newreleases'])
+        return this.handleError<Song>()
+      })
+    );
   }
 
   searchSongs(term: string, limit: number): Observable<ITunesResponse[]> {

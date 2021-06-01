@@ -24,6 +24,10 @@ export class NotFoundComponent implements OnInit {
         this.message = 'Sorry, this song doesn\'t exist!'
         break;
 
+      case 'newreleases':
+        this.message = 'Sorry, we couldn\'t find the newest releases.';
+        break;
+
       default:
         this.message = 'Sorry, the resource couldn\'t be found!'
     }
