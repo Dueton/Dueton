@@ -1,8 +1,8 @@
-nav {
+.nav {
+  overflow: hidden;
   background-color: #222;
-
-  position: fixed;
-  width: 102%;
+  
+  width: 99.655vw;
   margin-left: -2%;
 
   margin-top: -3%;
@@ -10,29 +10,93 @@ nav {
 
   padding-bottom: 2%;
   margin-bottom: 0;
-  z-index: 2;
+  z-index: 1;
 }
 
-nav a {
+.nav a {
+  float: left;
+  display: block;
+
   margin-left: 2%;
-  color: white;
-  font-size: 150%;
 
   text-decoration: none;
+  text-align: center;
   font-weight: bold;
+  font-size: 150%;
 }
 
-nav a:hover {
+.nav .icon {
+  display: none;
+}
+
+.active {
   color: #265773;
 }
 
-.bootstrapFix nav {
-  margin-left: -1.5;
-  margin-top: -2.5%;
-  padding-top: 2.5%;
+.content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
 
-  padding-bottom: 2.5%;
-  margin-bottom: 0;
+a {
+  color: white;
+}
 
-  background-color: white;
+a:hover {
+  color: #265773;
+}
+
+@media screen and (max-width: 600px) {
+  .nav a:not(:first-child) {
+    display: none;
+  }
+
+  .nav {
+    background-color: white;
+    border-radius: 10px;
+    width: 95vw;
+    margin-left: 0;
+  }
+
+  .responsive .active {
+    background-color: #265773 !important;
+    color: white !important;
+  }
+
+  .nav a {
+    margin-top: 5%;
+    background-color: darkgray;
+    color: black;
+
+    width: 80%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    border-radius: 10px;
+  }
+  
+  .nav button.icon {
+    margin-top: 5%;
+    float: right;
+    display: block;
+  }
+
+  .nav.responsive {
+    position: relative;
+  }
+
+  .nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
+
+  .nav.responsive a {
+    float: none;
+    display: block;
+  }
 }

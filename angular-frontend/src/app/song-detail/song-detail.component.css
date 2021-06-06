@@ -8,7 +8,6 @@ h1 {
   margin: auto;
 }
 
-
 .songdetails {
   margin-top: 3%;
 }
@@ -34,15 +33,12 @@ h1 {
 }
 
 .links img {
-  width: 20%;
+  width: 2.5vw;
+  display: inline-block;
 
   margin-top: -1.5%;
   margin-bottom: -2%;
   margin-right: -0%;
-}
-
-.links legend {
-  align-self: left;
 }
 
 #first-detail {
@@ -74,4 +70,50 @@ h1 {
 
 .audio h2 {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+  }
+
+  .video iframe {
+    position: absolute;
+    width: 98%;
+    height: 98%;
+  }
+
+  .details img {
+    display: block;
+    float: none;
+
+    width: 50%;
+  }
+
+  .details p span {
+    display: block;
+  }
+
+  .details p {
+    margin-left: 0;
+  }
+
+  .details span {
+    margin-left: -2%;
+  }
+
+  .links {
+    margin-top: 5%;
+    margin-left: 2%;
+
+    width: 60vw;
+  }
+
+  .links img {
+    width: 12vw;
+    display: inline-block;
+  }
 }

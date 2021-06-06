@@ -1,7 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-
-  /*background-color: #1c1c1c;*/
+  /*font-family: Arial, sans-serif;
+  background-color: #1c1c1c;*/
   color: #ebebeb;
 
   counter-reset: section;
@@ -79,4 +78,17 @@ section {
 .big {
   font-size: 2em;
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    margin-left: 0;
+  }
+  
+  #headingImage {
+    width: 46%;
+
+    margin-top: 15%;
+    margin-left: -4%;
+  }
 }
