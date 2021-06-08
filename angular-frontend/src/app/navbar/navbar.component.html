@@ -1,7 +1,7 @@
 <div class="nav" id="topnav">
-  <a routerLink="search" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Home</a>
-  <a routerLink="new" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">New Releases</a>
-  <a routerLink="comparison" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Comparison (static site)</a>
-  <a routerLink="about" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Project Description</a>
+  <a routerLink="search" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Home</a>
+  <a routerLink="new" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">New Releases</a>
+  <a routerLink="comparison" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Comparison (static site)</a>
+  <a routerLink="about" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Project Description</a>
   <button (click)="openNavBar()" style="font-size:15px;" class="icon">&#9776;</button>
 </div>

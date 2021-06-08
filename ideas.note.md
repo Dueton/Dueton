@@ -36,11 +36,13 @@
   - [x] Fix unnecessary vertical Scrollbars on mobile
     - [x] Fix table on the comparison site
     - [x] Fix navbar
+  - [x] Improve mobile navbar
+
 - [x] Fix unnecessary vertical Scrollbar on PC
 - [x] Fix dark theme (comparison, new, white logos)
-- [ ] Change colors a bit ("grayer gray and brighter blue")
-  - [ ] Background: #XXXX
-  - [ ] Main-Color: #XXXX
-
+- [x] Change colors a bit ("grayer gray and brighter blue")
+  - [x] Background
+  - [x] Main-Color
 - [x] For search still use iTunes API with Angular
+  - [x] Fix random appearing CORS-Erros
 - [x] For song details use Spring

@@ -46,7 +46,7 @@ export class SongService {
 
     term = term.replace(/\s/gi , '+');
 
-    return this.http.get<Result<ITunesResponse[]>>(`${this.iTunesApiUrl}/search?media=music&term=${term}&limit=${limit}`).pipe(
+    return this.http.get<Result<ITunesResponse[]>>(`${this.iTunesApiUrl}/search?term=${term}&entity=song&limit=${limit}`).pipe(
       map((result) => result.results));
   }
 

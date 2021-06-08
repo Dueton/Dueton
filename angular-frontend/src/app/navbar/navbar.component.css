@@ -18,11 +18,24 @@
   display: block;
 
   margin-left: 2%;
+  overflow: hidden;
 
   text-decoration: none;
   text-align: center;
   font-weight: bold;
   font-size: 150%;
+  
+  background: linear-gradient(to right, #3da2c1, #3da2c1 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.nav a:hover {
+  background-position: 0 100%; 
 }
 
 .nav .icon {
@@ -30,7 +43,7 @@
 }
 
 .active {
-  color: #265773;
+  background-position: 0 100% !important;
 }
 
 .content {
@@ -47,7 +60,7 @@ a {
 }
 
 a:hover {
-  color: #265773;
+  color: #3da2c1;
 }
 
 @media screen and (max-width: 600px) {
@@ -60,16 +73,17 @@ a:hover {
     border-radius: 10px;
     width: 95vw;
     margin-left: 0;
+    margin-top: -2vh;
   }
 
   .responsive .active {
-    background-color: #265773 !important;
+    background-color: #3da2c1 !important;
     color: white !important;
   }
 
   .nav a {
     margin-top: 5%;
-    background-color: darkgray;
+    background: darkgray !important;
     color: black;
 
     width: 80%;
@@ -77,11 +91,16 @@ a:hover {
     padding-bottom: 2%;
 
     border-radius: 10px;
+
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color:black;
   }
   
   .nav button.icon {
     margin-top: 5%;
     float: right;
+
     display: block;
   }
 

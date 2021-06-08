@@ -20,7 +20,7 @@ export class MusicSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.songs$ = this.searchTerms.pipe(
-      debounceTime(300),
+      debounceTime(500),
       distinctUntilChanged(),
       switchMap((term: string) => this.songService.searchSongs(term, 5))
     );

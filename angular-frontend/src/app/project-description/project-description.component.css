@@ -31,7 +31,7 @@ h2::before {
 }
 
 h2 {
-  border-bottom: 0.2em solid #b34700;
+  border-bottom: 0.2em solid #3da2c1;
   width: 80%;
   display: block;
 
@@ -50,7 +50,7 @@ p, dl {
 }
 
 #heading {
-  border-left: 0.2em solid #b34700;
+  border-left: 0.2em solid #3da2c1;
   display: block;
 
   margin-top: 2.5em;
