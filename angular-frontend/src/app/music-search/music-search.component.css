@@ -1,10 +1,3 @@
-div.releases {
-  position: absolute;
-  right: 2%;
-  top: 10%;
-  width: 30%;
-}
-
 .search-result img {
   width: 10%;
   margin-top: 1.8%;
@@ -12,12 +5,19 @@ div.releases {
 }
 
 label {
+  margin-top: -1vh;
+  color: #3da2c1;
   display: block;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 
   font-weight: bold;
   font-size: 500%;
   text-align: center;
+}
+
+#search-component span {
+  display: inline-block;
+  font-size: 130%;
 }
 
 input {
@@ -39,14 +39,22 @@ li {
 .search-result li a {
   display: inline-block;
   width: 100%;
-  max-width: 600px;
-  padding: .5rem;
+
+  padding: 1rem;
+  padding-top: 1.5rem;
   box-sizing: border-box;
   text-decoration: none;
 
   margin-left: 10%;
+  margin-top: -0.5%;
+
   padding-top: 2.2%;
   font-size: 150%;
+}
+
+.search-result span {
+  display: block !important;
+  font-size: 80% !important;
 }
 
 .search-result li {
@@ -67,11 +75,6 @@ ul.search-result {
   padding-left: 0;
 }
 
-span {
-  display: block;
-  font-size: 54%;
-}
-
 a:link {
   text-decoration: none;
   color: inherit;
@@ -90,4 +93,16 @@ a:hover {
 a:active {
   text-decoration: none;
   color: inherit;
+}
+
+@media screen and (max-width: 600px) {
+  label {
+    font-size: 320%;
+    width: 94vw;
+  }
+
+  .search-result img {
+    width: 14%;
+    margin-top: 2%;
+  }
 }

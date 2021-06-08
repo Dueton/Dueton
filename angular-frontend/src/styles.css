@@ -4,12 +4,12 @@
 }
 
 h1 {
-  color: #265773;
+  color: #3da2c1;
   font-size: 2.5rem;
 }
 
 h2, h3 {
-  color: #265773;
+  color: #3da2c1;
   font-weight: lighter;
 }
 
@@ -18,14 +18,14 @@ h3 {
 }
 
 body {
-  background-color: #222;
+  background-color: #262626;
   color: #f4f4f4;
   font-family: Cambria, Georgia, serif;
 }
 
 @media (min-width: 600px) {
   body {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
 
@@ -93,9 +93,9 @@ input[type="text"] {
 }
 
 div.middle {
-  position: absolute;
-  top: 40%;
-  left: 36%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 
-  /*margin: -70px 0 0 -170px;*/
+  transform: translate(-50%, -50%);
 }

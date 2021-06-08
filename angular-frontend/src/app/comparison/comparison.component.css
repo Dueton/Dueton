@@ -7,14 +7,8 @@ p, body, td, th {
   font-size: 105%;
 }
 
-body {
-  margin-left: -1.75%;
-  margin-right: -1.75%;
-  margin-bottom: -1.75%;
-}
-
 * {
-  background-color: #222;
+  background-color: #262626;
   font-family: Arial, sans-serif;
 }
 
@@ -102,9 +96,20 @@ table.fixed {
 
 .card {
   display:inline-block;
+  height: 100%;
+  background-color: #222;
+  border-style: solid;
+  border-width: 10px;
+  /*border-color: white;*/
 }
 
 div.alignCenter {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    margin-left: 12vw;
+  }
 }

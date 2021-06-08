@@ -1,7 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-
-  /*background-color: #1c1c1c;*/
+  /*font-family: Arial, sans-serif;
+  background-color: #1c1c1c;*/
   color: #ebebeb;
 
   counter-reset: section;
@@ -32,7 +31,7 @@ h2::before {
 }
 
 h2 {
-  border-bottom: 0.2em solid #b34700;
+  border-bottom: 0.2em solid #3da2c1;
   width: 80%;
   display: block;
 
@@ -51,7 +50,7 @@ p, dl {
 }
 
 #heading {
-  border-left: 0.2em solid #b34700;
+  border-left: 0.2em solid #3da2c1;
   display: block;
 
   margin-top: 2.5em;
@@ -79,4 +78,17 @@ section {
 .big {
   font-size: 2em;
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    margin-left: 0;
+  }
+  
+  #headingImage {
+    width: 46%;
+
+    margin-top: 15%;
+    margin-left: -4%;
+  }
 }
