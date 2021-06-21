@@ -46,6 +46,7 @@ testem.log
 *.crt
 *.key
 *.p12
+cacerts
 
 # System Files
 .DS_Store
@@ -55,4 +56,4 @@ package-lock.json
 
 # Configs
 application.yml
-docker-compose.yml
+#docker-compose.yml
