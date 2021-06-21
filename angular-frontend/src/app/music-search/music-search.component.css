@@ -1,7 +1,7 @@
 .search-result img {
-  width: 10%;
-  margin-top: 1.8%;
-  position: absolute;
+  width: 5em;
+  margin-top: 0;
+  position: fixed;
 }
 
 label {
@@ -13,6 +13,10 @@ label {
   font-weight: bold;
   font-size: 500%;
   text-align: center;
+}
+
+#search-component {
+  margin-top: -5%;
 }
 
 #search-component span {
@@ -34,22 +38,28 @@ input:focus {
 
 li {
   list-style-type: none;
+  padding: 1em;
+}
+
+.search-result {
+  position: fixed;
+  margin-left: -1%;
 }
 
 .search-result li a {
   display: inline-block;
-  width: 100%;
+  width: 50vw;
 
   padding: 1rem;
   padding-top: 1.5rem;
   box-sizing: border-box;
   text-decoration: none;
 
-  margin-left: 10%;
-  margin-top: -0.5%;
+  margin-left: 3.5em;
+  margin-top: -0.5em;
 
-  padding-top: 2.2%;
-  font-size: 150%;
+  padding-top: 1em;
+  font-size: 1.5em;
 }
 
 .search-result span {
@@ -58,7 +68,7 @@ li {
 }
 
 .search-result li {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .search-result li:hover {

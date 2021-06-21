@@ -32,3 +32,9 @@
         margin-left: 1%;
     }
 }
+
+@media screen and (min-width: 600px) {
+    .middle {
+        margin-left: 5%;
+    }
+}

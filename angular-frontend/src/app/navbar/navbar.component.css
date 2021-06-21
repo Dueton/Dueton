@@ -2,18 +2,19 @@
   overflow: hidden;
   background-color: #222;
   
-  width: 99.655vw;
+  width: 99.6vw;
   margin-left: -2%;
+  margin-right: 0;
 
   margin-top: -3%;
   padding-top: 3%;
 
-  padding-bottom: 2%;
+  padding-bottom: 1em;
   margin-bottom: 0;
   z-index: 1;
 }
 
-.nav a {
+.nav>a {
   float: left;
   display: block;
 
@@ -53,6 +54,65 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
+}
+
+.userInfos {
+  margin-left: 88vw;
+  margin-top: -.8em;
+}
+
+.dropdown {
+  padding: .2em;
+  border-style: solid;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.dropdown img {
+  width: 2em;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.1em;
+}
+
+.dropdown span {
+  float: inline-end;
+
+  margin-top: -0.1em;
+  margin-left: 0.4em;
+  margin-right: 0.5em;
+
+  font-size: 150%;
+}
+
+.dropdown span::first-letter {
+  text-transform: uppercase;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+  font-weight: normal;
+}
+
+.dropdown-content a:hover {
+  background-color: #e7e7e7;
+}
+
+.userInfos:hover .dropdown-content {
+  display: block;
 }
 
 a {
@@ -117,5 +177,9 @@ a:hover {
   .nav.responsive a {
     float: none;
     display: block;
+  }
+
+  .userInfos {
+    display: none;
   }
 }

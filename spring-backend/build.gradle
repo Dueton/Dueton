@@ -17,11 +17,21 @@ dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
   implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
   implementation 'se.michaelthelin.spotify:spotify-web-api-java:6.5.4'
   implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
+
+  implementation 'org.keycloak:keycloak-spring-boot-starter:13.0.1'
+  implementation("org.keycloak:keycloak-admin-client:13.0.1")
+
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
-  runtimeOnly 'com.h2database:h2'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+  imports {
+    mavenBom 'org.keycloak.bom:keycloak-adapter-bom:13.0.1'
+  }
 }
 
 test {

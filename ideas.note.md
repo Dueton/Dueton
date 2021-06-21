@@ -1,15 +1,29 @@
 # Todo
 
+## Final Steps
+
+- [ ] Spotify - add to playlist
+- [ ] (Login design)
+- [ ] (show lastSearchedSong as soon as search field active)
+- [x] fix Log In capital I
+- [x] account page
+  - [x] See infos
+  - [x] evtl. change data?
+  - [x] design
+- [x] Fix search results
+- [x] Top voted
+  - [x] backend
+  - [x] angular module
+
 ## Backend (Java Spring)
 
 - [x] Make song DTO object
   - [x] Restructure --> getting and managing full song-data is a task for the SongController
 - [x] Make request to iTunes faster
 - [x] Optimize loading times
-- [ ] DB
+- [x] DB
   - [x] Switch to MariaDB
   - [x] Table Songs: ID (prob iTunes id), name, vote-count
-  - [ ] Table User: Spotify token/auth credentials
 
 ## Frontend (Angular)
 

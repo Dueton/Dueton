@@ -1,0 +1,13 @@
+<div *ngIf="songs">
+    <h1>Top voted songs:</h1>
+
+    <ul class="top">
+        <li *ngFor="let song of songs">
+            <img src="{{song.pictureUrl}}" alt="Cover of {{song.name}}">
+            <a routerLink="/song/{{song.id}}">
+                {{song.name}}
+                <span>by {{song.artist}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

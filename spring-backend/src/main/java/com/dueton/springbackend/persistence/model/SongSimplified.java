@@ -1,5 +1,6 @@
 package com.dueton.springbackend.persistence.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,13 +8,19 @@ import javax.persistence.Id;
 public class SongSimplified {
 
   @Id
+  @Column(name = "song_id")
   private Long id;
 
+  @Column(name = "song_name")
   private String name;
-  private Long voteCount;
 
+  @Column(name = "song_spotify_url")
   private String spotifyUrl;
+
+  @Column(name = "song_itunes_url")
   private String iTunesUrl;
+
+  @Column(name = "song_youtube_url")
   private String youtubeUrl;
 
   protected SongSimplified(Long id, String name, String spotifyUrl, String iTunesUrl, String youtubeUrl) {
@@ -25,13 +32,10 @@ public class SongSimplified {
   }
 
   public SongSimplified(Long id) {
-    this();
     this.id = id;
   }
 
-  protected SongSimplified() {
-    this.voteCount = 0L;
-  }
+  protected SongSimplified() { }
 
   public Long getId() {
     return id;
@@ -39,14 +43,6 @@ public class SongSimplified {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public long getVoteCount() {
-    return voteCount;
-  }
-
-  public void setVoteCount(long voteCount) {
-    this.voteCount = voteCount;
   }
 
   public String getSpotifyUrl() {

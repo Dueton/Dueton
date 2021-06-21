@@ -1,10 +1,10 @@
 <div id="search-component" class="middle">
   <label for="search-box"><span>S</span>ong <span>S</span>earch</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <input #searchBox id="search-box" (input)="search(searchBox.value)"/>
 
   <ul class="search-result">
     <li *ngFor="let song of songs$ | async">
-      <img src="{{song.artworkUrl100}}" alt="Cover of {{song.trackName}}">
+    <img src="{{song.artworkUrl100}}" alt="Cover of {{song.trackName}}">
       <a routerLink="/song/{{song.trackId}}">
         {{song.trackName}}
         <span>by {{song.artistName}}</span>

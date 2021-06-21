@@ -1,0 +1,79 @@
+version: '3.1'
+
+services:
+
+  backend:
+    image: backend:latest
+    #restart: on-failure
+    networks:
+      - backend
+    ports:
+      - 8444:8444
+    volumes:
+      - ./certs/cacerts:/usr/java/openjdk-16/lib/security/cacerts
+      - ./certs/keystore.p12:/app/keystore.p12
+    links:
+      - "keycloak:keycloak.local"
+    depends_on:
+      - springdb
+
+  springdb:
+    image: mariadb:10.6
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE:
+      MYSQL_USER:
+      MYSQL_PASSWORD:
+    restart: on-failure
+    volumes:
+      - springDB:/var/lib/mysql
+
+  keycloak:
+    image: jboss/keycloak:latest
+    restart:
+    ports:
+      - 8443:8443
+    volumes:
+      - ./certs/:/etc/x509/https
+    networks:
+      - auth
+      - backend
+    environment:
+      DB_VENDOR:
+      DB_ADDR:
+      DB_DATABASE:
+      DB_USER:
+      DB_PASSWORD:
+      KEYCLOAK_USER:
+      KEYCLOAK_PASSWORD:
+    depends_on:
+      - keycloakdb
+
+  keycloakdb:
+    image: mariadb:10.6
+    networks:
+      - auth
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE:
+      MYSQL_USER:
+      MYSQL_PASSWORD:
+    restart:
+    volumes:
+      - keycloakDB:/var/lib/mysql
+
+networks:
+  backend:
+    driver: bridge
+  auth:
+    driver: bridge
+
+volumes:
+  keycloakDB:
+  springDB:
+
+
+# docker run -it --network spring-backend_backend --rm mariadb mysql -hspring-backend_springdb_1 -uroot -pnghpFn88SXhN7BMBq7rAPE5pdyieif9k
+# docker run -it --network spring-backend_auth --rm mariadb mysql -hspring-backend_keycloakdb_1 -uroot -pnghpFn88SXhN7BMBq7rAPE5pdyieif9k
