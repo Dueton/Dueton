@@ -56,4 +56,4 @@ package-lock.json
 
 # Configs
 application.yml
-#docker-compose.yml
+docker-compose.yml
