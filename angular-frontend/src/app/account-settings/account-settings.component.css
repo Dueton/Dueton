@@ -1,0 +1,79 @@
+.account {
+    
+}
+
+.account p {
+    font-size: 150%;
+}
+
+.userdetails * {
+    display: block;
+    font-size: 200%;
+}
+
+.userdetails label {
+    margin-top: 4%;
+    margin-bottom: 0.2%;
+    color: #3da2c1;
+}
+
+.song {
+    margin-bottom: 8%;
+    padding: 0.5em;
+}
+
+.song img {
+    width: 16%;
+    margin-top: 1.8%;
+    position: absolute;
+}
+
+.song a {
+    display: inline-block;
+    width: 100%;
+  
+    padding: 1rem;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+    text-decoration: none;
+  
+    margin-left: 18%;
+    margin-top: 2.6%;
+  
+    padding-top: 0.5%;
+    font-size: 150%;
+}
+
+.song span {
+    display: block !important;
+    font-size: 80% !important;
+}
+
+.song:hover {
+    background-color: #435A60;
+    color: white;
+    border-radius: 25px;
+  
+    left: -5%;
+    padding-left: 25px;
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+  
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:active {
+    text-decoration: none;
+    color: inherit;
+}

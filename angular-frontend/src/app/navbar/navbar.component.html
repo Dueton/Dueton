@@ -1,7 +1,22 @@
 <div class="nav" id="topnav">
   <a routerLink="search" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Home</a>
-  <a routerLink="new" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">New Releases</a>
+  <a routerLink="new" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">New releases</a>
+  <a routerLink="topvoted" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Top voted</a>
   <a routerLink="comparison" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Comparison (static site)</a>
-  <a routerLink="about" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Project Description</a>
+  <a routerLink="about" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="openNavBar()">Project description</a>
   <button (click)="openNavBar()" style="font-size:15px;" class="icon">&#9776;</button>
+
+  <div *ngIf="user" class="userInfos">
+    <div class="dropdown">
+      <img src="{{user.profilePictureUrl}}" alt="Profile Picture">
+      <span>{{user.username}}</span>
+    </div>
+    <div *ngIf="isLoggedIn" class="dropdown-content">
+      <a routerLink="account/settings">Account Settings</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="!isLoggedIn" class="dropdown-content">
+      <a (click)="login()">Login</a>
+    </div>
+  </div>
 </div>

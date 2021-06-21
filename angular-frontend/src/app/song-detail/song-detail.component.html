@@ -8,19 +8,30 @@
     <p id="genre"><span>Genre:</span> {{song.genre}}</p>
     <p><span>Release Date: </span> {{releaseDate.toDateString()}}</p>
 
-    <div class="links">
-      <a href="{{song.spotifyUrl}}" target="_blank">
-        <img src="assets/img/spotify_small.png" class="margins img-fluid" alt="Spotify Link to {{song.name}}">
-      </a>
-
-      <a href="{{song.iTunesUrl}}" target="_blank">
-        <img src="assets/img/apple_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
-      </a>
-
-      <a href="{{song.youtubeUrl}}" target="_blank">
-        <img src="assets/img/youtube_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
-      </a>
+    <div class="vote">
+      <button (click)="vote()">
+        <svg x="0px" y="0px" viewBox="0 0 490 490">
+          <path d="M245,258.23l153.302,155.246L490,324.619L245,76.524L0,324.619l91.697,88.857L245,258.23z M43.502,324.14L245,120.101
+            l201.498,204.04l-47.717,46.252L245,214.653L91.219,370.393L43.502,324.14z"/>
+        </svg>
+        <span class="voteText"><span class="voteCount">{{voteCount}}</span>Votes</span></button>
     </div>
+  </div>
+
+
+
+  <div class="links">
+    <a href="{{song.spotifyUrl}}" target="_blank">
+      <img src="assets/img/spotify_small.png" class="margins img-fluid" alt="Spotify Link to {{song.name}}">
+    </a>
+
+    <a href="{{song.iTunesUrl}}" target="_blank">
+      <img src="assets/img/apple_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
+    </a>
+
+    <a href="{{song.youtubeUrl}}" target="_blank">
+      <img src="assets/img/youtube_small.png" class="margins img-fluid" alt="Apple Link to {{song.name}}">
+    </a>
   </div>
 
   <div class="audio">

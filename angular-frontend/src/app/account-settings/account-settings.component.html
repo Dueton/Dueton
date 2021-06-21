@@ -1,0 +1,27 @@
+<div *ngIf="user" class="account middle">
+  <form class="userdetails">
+    <label for="username">Username: </label>
+    <input id="username" [(ngModel)]="user.username" name="username" placeholder="name"/>
+
+    <label for="profilePictureUrl">Profile-Picture URL: </label>
+    <input id="profilePictureUrl" [(ngModel)]="user.profilePictureUrl" name="profilePictureUrl" placeholder="url"/>
+
+    <label for="firstName">First name: </label>
+    <input id="firstName" [(ngModel)]="user.firstName" name="firstName" placeholder="first-name"/>
+
+    <label for="lastName">Family name: </label>
+    <input id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="family-name"/>
+  </form>
+
+  <p>Voted for {{user.voteCount}} song(s)</p>
+
+  <p>Last searched song: </p>
+  <div *ngIf="lastSearchedSong" class="song">
+    <img src="{{lastSearchedSong.artworkUrl100}}" alt="Cover of {{lastSearchedSong.trackName}}">
+    <a routerLink="/song/{{lastSearchedSong.trackId}}">
+      {{lastSearchedSong.trackName}}
+      <span>by {{lastSearchedSong.artistName}}</span>
+    </a>
+  </div>
+  <button (click)="save()">save</button>
+</div>
